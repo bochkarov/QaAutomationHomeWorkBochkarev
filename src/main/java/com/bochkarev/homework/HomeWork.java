@@ -32,8 +32,8 @@ public class HomeWork {
 //Finding password credits
         String passwordArea = driver.findElement(By.className("login_password")).getText();
         String[] passwordArray = passwordArea.split("\\r?\\n");
-        List<String> fixedPasswordList = Arrays.asList(passwordArray);
-        ArrayList<String> listOfPasswords = new ArrayList<>(fixedPasswordList);
+//        List<String> fixedPasswordList = Arrays.asList(passwordArray);
+//        ArrayList<String> listOfPasswords = new ArrayList<>(fixedPasswordList);
         String password = passwordArray[1];
 
 //login
