@@ -26,13 +26,14 @@ public class HomeWork {
         String[] loginsArray = loginsArea.split("\\r?\\n");
 //        List<String> fixedLoginList = Arrays.asList(loginsArray);
 //        ArrayList<String> listOfLogins = new ArrayList<String>(fixedLoginList);
+//        String login = listOfLogins.get(1);
         String login = loginsArray[1];
 
 //Finding password credits
         String passwordArea = driver.findElement(By.className("login_password")).getText();
         String[] passwordArray = passwordArea.split("\\r?\\n");
-//        List<String> fixedPasswordList = Arrays.asList(passwordArray);
-//        ArrayList<String> listOfPasswords = new ArrayList<String>(fixedPasswordList);
+        List<String> fixedPasswordList = Arrays.asList(passwordArray);
+        ArrayList<String> listOfPasswords = new ArrayList<>(fixedPasswordList);
         String password = passwordArray[1];
 
 //login
