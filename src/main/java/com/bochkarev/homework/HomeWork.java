@@ -24,16 +24,16 @@ public class HomeWork {
 //Finding login credits
         String loginsArea = driver.findElement(By.id("login_credentials")).getText();
         String[] loginsArray = loginsArea.split("\\r?\\n");
-        List<String> fixedLoginList = Arrays.asList(loginsArray);
-        ArrayList<String> listOfLogins = new ArrayList<String>(fixedLoginList);
-        String login = listOfLogins.get(1);
+//        List<String> fixedLoginList = Arrays.asList(loginsArray);
+//        ArrayList<String> listOfLogins = new ArrayList<String>(fixedLoginList);
+        String login = loginsArray[1];
 
 //Finding password credits
         String passwordArea = driver.findElement(By.className("login_password")).getText();
         String[] passwordArray = passwordArea.split("\\r?\\n");
-        List<String> fixedPasswordList = Arrays.asList(passwordArray);
-        ArrayList<String> listOfPasswords = new ArrayList<String>(fixedPasswordList);
-        String password = listOfPasswords.get(1);
+//        List<String> fixedPasswordList = Arrays.asList(passwordArray);
+//        ArrayList<String> listOfPasswords = new ArrayList<String>(fixedPasswordList);
+        String password = passwordArray[1];
 
 //login
         WebElement loginTextField = driver.findElement(By.name("user-name"));
