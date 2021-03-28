@@ -4,24 +4,32 @@ import helpers.BasePages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 public class InventoryPage extends BasePages {
-    private WebElement burger;
+    private final String LOGOUT_BUTTON_ID = "logout_sidebar_link";
+
+    @FindBy(id = "react-burger-menu-btn")
+    private WebElement burgerButton;
+
+    @FindBy(id = LOGOUT_BUTTON_ID)
+    private WebElement logoutButton;
+
     private WebDriverWait wait = new WebDriverWait(driver,5);
 
     public InventoryPage(WebDriver driver) {
         super(driver);
-        Assert.assertTrue(driver.getCurrentUrl().contains("/inventory.html"), "User is not log in");
-        burger = driver.findElement(By.id("react-burger-menu-btn"));
+        burgerButton = driver.findElement(By.id("react-burger-menu-btn"));
+    }
+
+    public void openBurgerMenu() {
+        burgerButton.click();
     }
 
     public void logOut() {
-        burger.click();
-        wait.until(ExpectedConditions.elementToBeClickable(By.id("logout_sidebar_link")));
-        WebElement logOutButton = driver.findElement(By.id("logout_sidebar_link"));
-        logOutButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.id(LOGOUT_BUTTON_ID)));
+        logoutButton.click();
     }
 }
