@@ -3,6 +3,7 @@ package pages;
 import helpers.BasePages;
 import org.apache.commons.lang3.ObjectUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -22,15 +23,10 @@ public class LoginPage extends BasePages {
     }
 
     public void login(String username, String password) {
+        clearText(usernameField);
         usernameField.sendKeys(username);
+        clearText(passwordField);
         passwordField.sendKeys(password);
-
-        if (username.isEmpty())
-            usernameField.clear();
-
-        if (password.isEmpty())
-            passwordField.clear();
-
         loginButton.click();
     }
 
@@ -51,9 +47,14 @@ public class LoginPage extends BasePages {
         password = getValuesFromCredentialsElements(passwordCredentialsClass, correctLoginAndPasswordIndex);
     }
 
-    public String getValuesFromCredentialsElements(String className, int index) {
+    private String getValuesFromCredentialsElements(String className, int index) {
         WebElement valuesElement = driver.findElement(By.className(className));
         String[] values = valuesElement.getText().split("\n");
         return values[index];
+    }
+
+    private void clearText(WebElement element) {
+        while (element.getAttribute("value").length() > 0)
+            element.sendKeys(Keys.BACK_SPACE);
     }
 }
