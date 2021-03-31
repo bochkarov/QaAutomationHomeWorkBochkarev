@@ -34,4 +34,12 @@ public abstract class BaseTest {
             return false;
         }
     }
+
+    public boolean isElementHasText(WebElement element) {
+        try {
+            return element.getText().length() > 0;
+        } catch (NoSuchElementException ignore) {
+            return false;
+        }
+    }
 }
