@@ -27,11 +27,19 @@ public abstract class BaseTest {
         driver.quit();
     }
 
-    public boolean isElementExists(WebElement element) {
+    protected boolean isElementExists(WebElement element) {
         try {
             return element.isDisplayed();
         } catch (NoSuchElementException ignore) {
             return false;
+        }
+    }
+
+    protected String getTextOrEmpty(WebElement element) {
+        try {
+            return element.getText();
+        } catch (NoSuchElementException ignore) {
+            return "";
         }
     }
 

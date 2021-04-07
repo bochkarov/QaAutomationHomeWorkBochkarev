@@ -20,8 +20,9 @@ public class LoginTestNegative extends BaseTest {
 
 
         loginPage.loginButton.click();
+
         Assert.assertTrue(isElementHasText(loginPage.error),"The error has no text");
-        softAssert.assertEquals(loginPage.error.getText(), "Epic sadface: Username is required", "Without credits login: Wrong error message!");
+        softAssert.assertEquals(getTextOrEmpty(loginPage.error), "Epic sadface: Username is required", "Without credits login: Wrong error message!");
 
         loginPage.login("", generateString());
         Assert.assertTrue(isElementHasText(loginPage.error),"The error has no text");

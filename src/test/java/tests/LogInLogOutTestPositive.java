@@ -12,7 +12,6 @@ public class LogInLogOutTestPositive extends BaseTest {
     private String password;
 
     @Test
-
     public void logInLogOutTestPositive() {
         LoginPage loginPage = new LoginPage(driver);
         username = loginPage.getValuesFromCredentialsElements("login_credentials", 1);
