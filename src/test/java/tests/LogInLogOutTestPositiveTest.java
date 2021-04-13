@@ -1,13 +1,15 @@
 package tests;
 
 import helpers.BaseTest;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.InventoryPage;
 import pages.LoginPage;
 
-public class LogInLogOutTestPositive extends BaseTest {
+public class LogInLogOutTestPositiveTest extends BaseTest {
 
     private String username;
     private String password;
@@ -20,6 +22,13 @@ public class LogInLogOutTestPositive extends BaseTest {
 
     @Test(dataProvider = "credentials")
     public void logInLogOutTestPositive(String username, String password) {
+        Logger log = Logger.getLogger(this.getClass());
+        PropertyConfigurator.configure("src/test/resources/properties/log4j.properties");
+        log.error("Error");
+        log.info("Info");
+        log.debug("Debug");
+        log.trace("Trace");
+
         LoginPage loginPage = new LoginPage(driver);
         softAssert.assertFalse(isElementExists(loginPage.error), "Error on login page");
         InventoryPage inventoryPage = loginPage.login(username,password);

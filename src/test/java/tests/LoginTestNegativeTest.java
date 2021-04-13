@@ -12,7 +12,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Random;
 
-public class LoginTestNegative extends BaseTest {
+public class LoginTestNegativeTest extends BaseTest {
 
     @DataProvider(name = "credentials")
     private Object[][] credentials(){
