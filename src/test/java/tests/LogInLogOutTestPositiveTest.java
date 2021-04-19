@@ -22,14 +22,8 @@ public class LogInLogOutTestPositiveTest extends BaseTest {
 
     @Test(dataProvider = "credentials")
     public void logInLogOutTestPositive(String username, String password) {
-        Logger log = Logger.getLogger(this.getClass());
-        PropertyConfigurator.configure("src/test/resources/properties/log4j.properties");
-        log.error("Error");
-        log.info("Info");
-        log.debug("Debug");
-        log.trace("Trace");
-
         LoginPage loginPage = new LoginPage(driver);
+        loginPage.testLog();
         softAssert.assertFalse(isElementExists(loginPage.error), "Error on login page");
         InventoryPage inventoryPage = loginPage.login(username,password);
         Assert.assertTrue(driver.getCurrentUrl().contains("/inventory.html"), "User is not log in");
