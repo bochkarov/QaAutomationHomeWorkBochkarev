@@ -49,4 +49,8 @@ public class LoginPage extends BasePages {
             element.sendKeys(Keys.BACK_SPACE);
     }
 
+    public void testLog() {
+        log.info("It`s log from LoginPage");
+    }
+
 }

@@ -27,10 +27,22 @@
                 <property>
                     <name>Negative suite</name>
                 </property>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite>loginNegativeTests</suite>
+            </properties>
+        </profile>
+        <profile>
+            <id>Positive suite</id>
+            <activation>
+                <property>
+                    <name>Positive suite</name>
+                </property>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite>loginPositiveTests</suite>
             </properties>
         </profile>
     </profiles>
@@ -64,13 +76,11 @@
         </plugins>
     </build>
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-chrome-driver</artifactId>
             <version>3.141.59</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
